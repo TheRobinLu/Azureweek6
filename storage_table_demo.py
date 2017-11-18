@@ -11,7 +11,7 @@ resourcegroup_name = 'rlu'+''.join(random.choice(string.ascii_lowercase + string
 storageaccount_name = 'rlu'+''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
 location = 'canadaeast'
 
-###
+######################################
 # Create the a resource group for our demo
 # We need a resource group and a storage account. A random name is generated, as each storage account name must be globally unique.
 ###
