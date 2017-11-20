@@ -71,11 +71,11 @@ raw_input('Press Enter to continue...')
 vehicle = Entity()
 vehicle.PartitionKey = 'vehicles'
 vehicle.RowKey = '001'
-vehicle.Maker = 'GM'
-vehicle.Brand = 'Chevrolet'
-vehicle.Model = 'Cruze'
-vehicle.BodyStyle = '4 Door Sedan'
-vehicle.Color = 'Red'
+vehicle.maker = 'GM'
+vehicle.brand = 'Chevrolet'
+vehicle.model = 'Cruze'
+vehicle.bodystyle = '4 Door Sedan'
+vehicle.color = 'Red'
 vehicle.year = '2018'
 vehicle.price = 18000
 table_service.insert_entity('itemstable', vehicle)
@@ -85,11 +85,11 @@ print('Created entry for GM-Chevrolet...')
 vehicle = Entity()
 vehicle.PartitionKey = 'vehicles'
 vehicle.RowKey = '002'
-vehicle.Maker = 'GM'
-vehicle.Brand = 'Buick'
-vehicle.Model = 'Regal'
-vehicle.BodyStyle = '4 Door'
-vehicle.Color = 'Silver'
+vehicle.maker = 'GM'
+vehicle.brand = 'Buick'
+vehicle.model = 'Regal'
+vehicle.bodystyle = '4 Door'
+vehicle.color = 'Silver'
 vehicle.year = '2018'
 vehicle.price = 48000
 table_service.insert_entity('itemstable', vehicle)
@@ -98,11 +98,11 @@ print('Created entry for GM-Buick...')
 vehicle = Entity()
 vehicle.PartitionKey = 'vehicles'
 vehicle.RowKey = '003'
-vehicle.Maker = 'BMW'
-vehicle.Brand = 'BMW'
-vehicle.Model = 'Cabriolet'
-vehicle.BodyStyle = '4 Door Sedan'
-vehicle.Color = 'Brown'
+vehicle.maker = 'BMW'
+vehicle.brand = 'BMW'
+vehicle.model = 'Cabriolet'
+vehicle.bodystyle = '4 Door Sedan'
+vehicle.color = 'Brown'
 vehicle.year = '2018'
 vehicle.price = 58020
 table_service.insert_entity('itemstable', vehicle)
@@ -111,11 +111,11 @@ print('Created entry for BMW-Cabriolet...')
 vehicle = Entity()
 vehicle.PartitionKey = 'vehicles'
 vehicle.RowKey = '004'
-vehicle.Maker = 'Audi'
-vehicle.Brand = 'Audi'
-vehicle.Model = 'RS 7 Sportback'
-vehicle.BodyStyle = '4 Door Sedan'
-vehicle.Color = 'Black'
+vehicle.maker = 'Audi'
+vehicle.brand = 'Audi'
+vehicle.model = 'RS 7 Sportback'
+vehicle.bodystyle = '4 Door Sedan'
+vehicle.color = 'Black'
 vehicle.year = '2018'
 vehicle.price = 128000
 table_service.insert_entity('itemstable', vehicle)
@@ -156,17 +156,18 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'vehicles'", select='Maker,model,price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'vehicles'", select='maker,model,brand,price')
 for item in items:
-    print('Maker: ' + item.Maker)
-    print('Brand: ' + item.Brand)
-    print('Price: ' + str(item.price) + '\n')
+    print('Maker: ' + item.maker)
+    print(' Brand: ' + item.brand)
+    print(' Model: ' + item.model)
+    print(' Price: ' + str(item.price) + '\n')
 
 items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffees'", select='brand,size,price')
 for item in items:
     print('Brand: ' + item.brand)
-    print('Size: ' + item.size)
-    print('Price: ' + str(item.price) + '\n')
+    print(' Size: ' + item.size)
+    print(' Price: ' + str(item.price) + '\n')
 
 time.sleep(1)
 
