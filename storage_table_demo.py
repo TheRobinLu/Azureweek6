@@ -1,5 +1,5 @@
 #Add comment at 1st line to demo update file 
-import string,random,time,AzureRM,json
+import string,random,time,azurerm,json
 from azure.storage.table import TableService, Entity
 
 # Define variables to handle Azure authentication
